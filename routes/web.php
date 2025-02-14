@@ -5,6 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Master\LeaderboardController;
 use App\Http\Controllers\Master\MasterQuizController;
+use App\Http\Controllers\MemberController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -38,9 +40,21 @@ Route::prefix('/quizku')->group(function() {
         // Master Data Route
         Route::prefix('/master-quiz')->as('master.')->middleware('admin_login')->group(function() {
             Route::get('/', [MasterQuizController::class, 'index'])->name('index');
+            Route::post('/assign-question', [MasterQuizController::class, 'distributeQuestions'])->name('assign-question');
+
+            // Datatables route
+            Route::prefix('/datatables')->as('datatables.')->group(function() {
+                Route::get('/members', [MemberController::class, 'datatables'])->name('members');
+                Route::get('/questions', [QuestionController::class, 'datatables'])->name('questions');
+                Route::get('/assigned-question', [MasterQuizController::class, 'assignedQuestionDatatables'])->name('assigned-question');
+            }); 
+
+            // Member & Question Route
+            Route::resource('member', MemberController::class)->only(['store', 'destroy']);
+            Route::resource('question', QuestionController::class)->only(['store', 'destroy']);
         }); 
 
-        // Master Data Route
+        // Leaderboard Route
         Route::prefix('/leaderboard')->as('leaderboard.')->middleware('admin_login')->group(function() {
             Route::get('/', [LeaderboardController::class, 'index'])->name('index');
         }); 

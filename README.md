@@ -27,11 +27,16 @@
 Email : admin@quizku.test
 
 ## Progress
-- v1.0.1
+- v1.0.1 (Form Admin)
   - Membuat basic & master layout
   - Membuat basic migration, seeder, modal, controller pada masing-masing modul
   - Menyelesaikan fitur dashboard awal, login admin, direction setelah login admin, membuat navbar untuk kebutuhan input data (master quiz & leaderboard)
   - Membuat middleware untuk logic authentifikasi admin
+- v1.0.2 (Form Master Quiz)
+  - menyelesaikan semua fitur untuk master quiz
+  - table menggunakan datatables 
+  - semua penambahan, penghapusan dll menggunakan ajax
+- v1.0.3 (Form Master Quiz) todo
 
 ## Screenshot
 >>>>>>> 9fbebce (first commit & finish task 1. Form Admin)

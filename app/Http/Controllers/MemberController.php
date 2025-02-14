@@ -28,7 +28,14 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required', 'email', 'unique:members,email',
+        ]);
+
+        Member::create($request->all());
+
+        return $this->success($request->all(), 'Member has been created successfully');
     }
 
     /**
@@ -60,6 +67,23 @@ class MemberController extends Controller
      */
     public function destroy(Member $member)
     {
-        //
+        $member->delete();
+
+        return $this->success($member, 'Member has been deleted successfully');
+    }
+
+
+    public function datatables(Request $request) {
+        $get_members = Member::query();
+
+        return datatables($get_members)
+            ->addColumn('actions', function($todo) {
+                $delete_button = "<a type='button' class='btn btn-icon btn-danger text-white delete-member-button' data-delete-route='" . route('admin.master.member.destroy', ':id') . "'><i class='fas fa-trash'></i></a>";
+
+                return "<div class='btn-group'>{$delete_button}</div>";
+            })
+
+            ->escapeColumns([])
+            ->make();
     }
 }

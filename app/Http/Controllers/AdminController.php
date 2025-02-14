@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Member;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
