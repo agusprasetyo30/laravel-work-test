@@ -14,7 +14,7 @@
 
 			<div class="card-body">
 				<a href="{{ route('admin.index') }}" class="btn btn-primary btn-block">Login as Admin</a>
-				<a href="#" class="btn btn-primary btn-block">Login as Member</a>
+				<a href="{{ route('member.index') }}" class="btn btn-primary btn-block">Login as Member</a>
 			</div>
 		</div>
 		<div class="simple-footer">

@@ -6,9 +6,10 @@
 
 ## How to use
 1. Clone repository ini
-2. setelah itu masuk ke folder, dan ketik di terminal `composer install` agar file bisa digunakan
-3. Rubah file `.env.example` menjadi `.env`, kemudian ketik di terminal `php artisan key:generate` untuk menginisialisasi KEY
-4. isi data berikut di file `.env` sesuai dengan db yang dibuat
+2. Membuat database `borwita_technical_test`
+3. setelah itu masuk ke folder, dan ketik di terminal `composer install` agar file bisa digunakan
+4. Rubah file `.env.example` menjadi `.env`, kemudian ketik di terminal `php artisan key:generate` untuk menginisialisasi KEY
+5. isi data berikut di file `.env` sesuai dengan db yang dibuat
 	```env
 	DB_CONNECTION=pgsql
 	DB_HOST=127.0.0.1
@@ -17,9 +18,9 @@
 	DB_USERNAME=username_phpmyadmin (biasanya postgres)
 	DB_PASSWORD=
 	```
-5. setelah sukses, tambahkan tabel dengan migrate, caranya adalah dengan ketik di terminal `php artisan migrate`
-6. Untuk menambahkan data dummy, maka tambahkan seeder, dengan cara ketik di terminal `php artisan db:seed`
-7. Aplikasi dapat digunakan 😊
+6. setelah sukses, tambahkan tabel dengan migrate, caranya adalah dengan ketik di terminal `php artisan migrate`
+7. Untuk menambahkan data dummy, maka tambahkan seeder, dengan cara ketik di terminal `php artisan db:seed`
+8. Aplikasi dapat digunakan 😊
 
 ## Authentifikasi
 
@@ -38,6 +39,9 @@ Email : admin@quizku.test
   - semua penambahan, penghapusan dll menggunakan ajax
 - v1.0.3 (Form Leaderboard)
   - Finish leaderboard
-- v1.0.4 (Form Quiz) Todo
+- v1.0.4 (Form Quiz)
+  - menyelesaikan question beserta rule nya
+  - menambahkan logicx untuk menampilkan data
+  - menampilkan data jam, dll
 
 ## Screenshot

@@ -13,9 +13,17 @@
 		<li class="{{ Request::is('item*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('item.index') }}"><i class="fas fa-layer-group"></i> <span>Item</span></a></li> --}}
 		{{-- <li class="{{ Request::is('dashboard') ? 'active' : '' }}"><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li> --}}
 
-		<li class="menu-header">Master</li>
-		<li class="{{ Request::is('*master-quiz*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.master.index') }}"><i class="fas fa-book"></i> <span>Master Quiz</span></a></li>
-		<li class="{{ Request::is('*leaderboard*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.leaderboard.index') }}"><i class="fas fa-clipboard-list"></i> <span>Leaderboard</span></a></li>
+		{{-- @session('user_login'['role'] == 'admin') --}}
+		@if (session('user_login')['role'] == 'admin')
+			<li class="menu-header">Master</li>
+			<li class="{{ Request::is('*master-quiz*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.master.index') }}"><i class="fas fa-book"></i> <span>Master Quiz</span></a></li>
+			<li class="{{ Request::is('*leaderboard*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('admin.leaderboard.index') }}"><i class="fas fa-clipboard-list"></i> <span>Leaderboard</span></a></li>
+		@endif
+
+		@if (session('user_login')['role'] == 'member')
+			<li class="menu-header">Question</li>
+			<li class="{{ Request::is('*member/question*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('member.question.index') }}"><i class="fas fa-book"></i> <span>Question</span></a></li>
+		@endif
 		
 		{{-- <li class="menu-header">Master Data</li>
 		<li class="{{ Request::is('item-category*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('item-category.index') }}"><i class="fas fa-layer-group"></i> <span>Kategori Barang</span></a></li>

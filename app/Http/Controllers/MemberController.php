@@ -12,7 +12,34 @@ class MemberController extends Controller
      */
     public function index()
     {
-        //
+        if (session('user_login')) {
+            // abort(409, "You are already logged in!");
+            return redirect()->route('member.index');
+        }
+        
+        return view('member.index');
+    }
+
+    /**
+     * Digunakan untuk login sebagai admin
+     * @param \Illuminate\Http\Request $request
+     * @return mixed|\Illuminate\Http\RedirectResponse
+     */
+    public function memberLogin(Request $request)
+    {
+        $get_data = Member::where('email', $request->email)->first();
+        
+        if($get_data) {
+            $get_data->role = 'member';
+
+            session(['user_login' => $get_data]);
+
+            return redirect()->route('member.question.index');
+        }
+        
+        return redirect()->route('member.index')
+            ->with('alert_type', 'error')
+            ->with('message', 'Email not found!');
     }
 
     /**

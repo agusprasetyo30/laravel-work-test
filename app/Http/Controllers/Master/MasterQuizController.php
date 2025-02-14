@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Master;
 
 use App\Http\Controllers\Controller;
+use App\Models\Leaderboard;
 use App\Models\Member;
 use App\Models\MemberQuestion;
 use App\Models\Question;

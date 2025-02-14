@@ -6,9 +6,11 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Master\LeaderboardController;
 use App\Http\Controllers\Master\MasterQuizController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\MemberQuestionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 // Diguankan untuk dashboard awal
@@ -62,7 +64,24 @@ Route::prefix('/quizku')->group(function() {
     });
 
     // Member
-    Route::prefix('/member')->group(function() {
-        
+    Route::prefix('/member')->as('member.')->group(function() {
+        Route::get('/', [MemberController::class, 'index'])->name('index');
+        Route::post('/login', [MemberController::class, 'memberLogin'])->name('login');
+
+        // Member Question Route
+        Route::prefix('/question')->as('question.')->middleware('member_login')->group(function() {
+            Route::get('/', [MemberQuestionController::class, 'index'])->name('index');
+            Route::post('/answer', [MemberQuestionController::class, 'answer'])->name('answer');
+        });
+
     });
 });
+
+Route::get('/get-time', function () {
+    return response()->json([
+        'hour' => now()->format('H'),
+        'minute' => now()->format('i'),
+        'second' => now()->format('s'),
+    ]);
+});
+

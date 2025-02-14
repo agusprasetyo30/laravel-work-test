@@ -15,6 +15,12 @@ class MemberLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if (!$request->session()->has("user_login")) {
+            return redirect()->route('member.index');
+        } else if ($request->session()->get('user_login')['role'] != 'member' ) {
+            return redirect()->route('dashboard');
+        }
+
         return $next($request);
     }
 }

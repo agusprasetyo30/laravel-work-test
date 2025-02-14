@@ -37,7 +37,6 @@ class AdminController extends Controller
             session(['user_login' => $get_data]);
 
             return redirect()->route('admin.master.index');
-            // dd($get_data, $get_data->role);
         }
         
         return redirect()->route('admin.index')
