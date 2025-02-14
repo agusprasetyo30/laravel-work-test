@@ -12,7 +12,8 @@ class LeaderboardController extends Controller
      */
     public function index()
     {
-        //
+        // 
+        
     }
 
     /**
@@ -62,4 +63,10 @@ class LeaderboardController extends Controller
     {
         //
     }
+
+    /**
+     * Digunakan untuk menampilkan tabel leaderboard
+     * @return \Illuminate\Http\JsonResponse
+     */
+    
 }

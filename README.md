@@ -36,6 +36,8 @@ Email : admin@quizku.test
   - menyelesaikan semua fitur untuk master quiz
   - table menggunakan datatables 
   - semua penambahan, penghapusan dll menggunakan ajax
-- v1.0.3 (Form Master Quiz) todo
+- v1.0.3 (Form Leaderboard)
+  - Finish leaderboard
+- v1.0.4 (Form Quiz) Todo
 
 ## Screenshot

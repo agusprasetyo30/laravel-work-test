@@ -57,6 +57,7 @@ Route::prefix('/quizku')->group(function() {
         // Leaderboard Route
         Route::prefix('/leaderboard')->as('leaderboard.')->middleware('admin_login')->group(function() {
             Route::get('/', [LeaderboardController::class, 'index'])->name('index');
+            Route::get('/datatables', [LeaderboardController::class, 'datatables'])->name('datatables');
         }); 
     });
 

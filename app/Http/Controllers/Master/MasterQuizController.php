@@ -58,6 +58,10 @@ class MasterQuizController extends Controller
     }
 
     
+    /**
+     * Summary of assignedQuestionDatatables
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function assignedQuestionDatatables() {
         $data = MemberQuestion::with('member', 'question');
 
