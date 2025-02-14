@@ -32,9 +32,15 @@ class MemberQuestionController extends Controller
             $total_soal = $key + 1;
         }
 
-        $data['total_nilai'] = ($jumlah_jawaban_benar / $total_soal) * 100;
-        $data['status'] = $data['total_nilai'] >= 80 ? 'lulus' : 'tidak lulus';
-        $data['jumlah_jawab'] = $jumlah_jawab;
+        if ($jumlah_jawab != 0) {
+            $data['total_nilai'] = ($jumlah_jawaban_benar / $total_soal) * 100;
+            $data['status'] = $data['total_nilai'] >= 80 ? 'lulus' : 'tidak lulus';
+            $data['jumlah_jawab'] = $jumlah_jawab;
+        } else {
+            $data['total_nilai'] = 0;
+            $data['status'] = 'tidak lulus';
+            $data['jumlah_jawab'] = 0;
+        }
 
         return view('member.question', [
             'list_questions' => $list_questions,
