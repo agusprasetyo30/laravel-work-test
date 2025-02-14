@@ -39,4 +39,3 @@ Email : admin@quizku.test
 - v1.0.3 (Form Master Quiz) todo
 
 ## Screenshot
->>>>>>> 9fbebce (first commit & finish task 1. Form Admin)
