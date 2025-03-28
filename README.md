@@ -1,6 +1,6 @@
 <div align="center">
    <h1>
-      Coding Test Laravel (AGUS PRASETYO)
+      Coding Test Laravel PT. Borwita Citra Prima (AGUS PRASETYO)
    </h1>
 </div>
 
